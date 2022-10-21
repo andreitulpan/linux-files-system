@@ -1,0 +1,60 @@
+# Copyright 2021 - Tulpan Andrei 324CA
+	Pentru rezolvarea temei, am implementat sistemul
+de fisiere cu ajutorul listelor simplu inlantuite.
+	Pentru inceput am creat directorul de baza,
+adica directorul home si am alocat memoria necesara
+acestuia. Ulterior am folosit o bucla 'do while'
+pentru a citi comenzile din consola pana la primirea
+comenzii de stop.
+	Sistemul de citire al comenzilor este reprezentat
+de un vector de string-uri care se realoca de fiecare
+data pentru fiecare comanda noua, eficientizand astfel
+memoria ocupata.
+	Pentru comanda touch, am creat fisierul nou,
+i-am alocat memoria necesara si i-am initializat
+campurile, apoi l-am adaugat la finalul listei
+de fisiere a directorului in care s-a efectuat comanda,
+cu conditia sa nu mai existe alt director sau fisier
+cu acelasi nume.
+	Pentru comanda mkdir, am folosit o implementare
+identica cu cea a comenzii touch, dar spre deosebire
+de aceea, aici am adaugat directorul la finalul listei
+de directoare, daca acest lucru era posibil, ca si in
+cazul comenzii anterioare.
+	Pentru comanda ls, am parcurs lista de directoare si
+lista de fisiere a directorului curent si am printat
+elementele acestora.
+	Pentru comanda rm, am cautat fisierul in lista de
+fisiere a directorului curent, iar la gasirea acestuia
+am sters legaturile lui si i-am eliberat memoria, in caz
+contrar am afisat un mesaj de eroare.
+	Pentru comanda rmdir, am folosit o implementare
+similara cu cea a comenzii rm, doar ca in cazul
+directoarelor, a trebuit sa realizez stergerea tuturor
+fisierelor din director, apoi sa apelez recursiv functia
+pentru fiecare sub-director al directorului curent.
+	Pentru comanda cd, am cautat directorul primit ca
+parametru si am inlocuit directorul prestabilit ca 'home'
+cu acesta, in caz contrar gasirii lui am afisat un mesaj
+de eroare.
+	Pentru comanda pwd, am creat un string gol la care
+am concatenat numele rasturnate ale directoarelor de la
+directorul curent pana la 'home', apoi am intors tot
+string-ul si am obtinut calea catre directorul curent.
+Pentru implementarea acestei functii, am avut nevoie de
+functia strrev pe care am implementat-o.
+	Pentru functia tree, am printat lista de directoare,
+facand apoi un apel recursiv pe fiecare director, iar
+ulterior lista de fisiere, cu spatierile necesare,
+rezultand un output similar celui din linux.
+	Pentru functia mv am cautat daca numele nou este
+disponibil sau este alocat unui fisier/director. Daca
+numele este disponibil, se va cauta fisierul/directorul
+in lista aferenta acestuia. Daca se gaseste fisierul/
+directorul se sterg legaturile acestuia, se atribuie
+noul nume si se adauga la finalul listei aferente.
+	Pentru comanda stop, am implementat eliberarea
+memoriei alocate dinamic pentru tot sitemul de fisiere,
+eliberand memoria pentru fiecare fisier si director in
+parte.
+	
